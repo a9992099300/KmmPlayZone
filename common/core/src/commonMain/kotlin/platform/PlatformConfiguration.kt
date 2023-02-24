@@ -1,3 +1,5 @@
 package platform
 
-expect class PlatformConfiguration
+expect class PlatformConfiguration {
+
+}

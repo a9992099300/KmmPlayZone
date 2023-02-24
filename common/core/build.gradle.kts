@@ -10,14 +10,20 @@ kotlin {
             dependencies {
                 api(Dependencies.Kotlin.Serialization.serialization)
                 api(Dependencies.Kotlin.Coroutines.core)
-                implementation(Dependencies.Ktor.core)
+
+                api(Dependencies.Ktor.core)
                 implementation(Dependencies.Ktor.json)
                 implementation(Dependencies.Ktor.serialization)
+                implementation(Dependencies.Ktor.negotiation)
+                implementation(Dependencies.Ktor.kotlin_json)
                 implementation(Dependencies.Ktor.logging)
-//                api(Dependencies.Ktor.okhttp)
+
+                implementation(Dependencies.Settings.core)
+                implementation(Dependencies.Settings.noargs)
                 api(Dependencies.Kodein.core)
 
                 api(Dependencies.SqlDelight.core)
+
             }
         }
 
