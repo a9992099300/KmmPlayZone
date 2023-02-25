@@ -5,24 +5,30 @@ plugins {
 }
 
 android {
-    compileSdk =33
+    compileSdk = 33
 
     defaultConfig {
-        minSdk = 26
-        targetSdk =33
+        minSdk = 21
+        targetSdk = 33
+    }
+
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.2.0"
     }
 
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
 
-
-    sourceSets{
+    sourceSets {
         named("main") {
             manifest.srcFile("src/androidMain/AndroidManifest.xml")
-            res.srcDirs("src/androidmain/res", "src/commonMain/resources")
+            res.srcDirs("src/androidMain/res", "src/commonMain/resources")
         }
     }
-
 }
