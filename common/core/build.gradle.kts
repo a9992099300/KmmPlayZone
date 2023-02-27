@@ -22,7 +22,7 @@ kotlin {
                 implementation(Dependencies.Settings.noargs)
                 api(Dependencies.Kodein.core)
 
-                api(Dependencies.SqlDelight.core)
+             //   api(Dependencies.SqlDelight.core)
 
             }
         }
@@ -31,21 +31,21 @@ kotlin {
             dependencies {
                 implementation(Dependencies.Ktor.android)
                 implementation(Dependencies.Ktor.okhttp)
-                implementation(Dependencies.SqlDelight.android)
+             //   implementation(Dependencies.SqlDelight.android)
             }
         }
 
         iosMain {
             dependencies {
                 implementation(Dependencies.Ktor.ios)
-                implementation(Dependencies.SqlDelight.ios)
+             //   implementation(Dependencies.SqlDelight.ios)
             }
         }
 
         desktopMain {
             dependencies {
                 implementation(Dependencies.Ktor.okhttp)
-                implementation(Dependencies.SqlDelight.desktop)
+             //   implementation(Dependencies.SqlDelight.desktop)
             }
         }
     }

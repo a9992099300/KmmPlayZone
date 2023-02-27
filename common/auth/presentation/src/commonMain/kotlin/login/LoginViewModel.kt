@@ -8,7 +8,7 @@ import login.models.LoginAction
 import login.models.LoginEvent
 import login.models.LoginViewState
 
-class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent> (
+class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEvent>(
     initialState = LoginViewState(email = "", password = "")
         ) {
 
@@ -41,10 +41,10 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
         viewState = viewState.copy(isSending = true)
         viewModelScope.launch {
             viewState = try {
-                val responce = authRepository.login(
+                val response = authRepository.login(
                     viewState.email, viewState.password
                 )
-                if (responce.token.isNotEmpty()){
+                if (response.token.isNotEmpty()){
                     viewState.copy(email = "", password = "", isSending = false)
                 } else {
                     viewState.copy(isSending = false)
