@@ -2,18 +2,13 @@ import SwiftUI
 import SharedSDK
 
 struct ContentView: View {
-	//let greet = Greeting().greet()
-    
-    private let vm = LoginViewModel()
 
-	var body: some View {
-        Button{
-            vm.obtainEvent(viewEvent: .LoginClick())
-        } label: {
-            Text("Click")
-        }
-      
-	}
+    var body: some View {
+        LoginScreen()
+            .background(Color.backgroundPrimary)
+            .background(ignoresSafeAreaEdges: [.top, .bottom, .leading, .trailing])
+           
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {

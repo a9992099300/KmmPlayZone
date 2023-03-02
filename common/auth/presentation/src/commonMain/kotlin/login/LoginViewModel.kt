@@ -13,6 +13,17 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
         ) {
 
     private val authRepository: AuthRepository = Inject.instance()
+    init {
+        checkUserLoggedIn()
+    }
+
+    private fun checkUserLoggedIn() {
+        if (authRepository.isUserLoggedIn()) {
+            viewAction = LoginAction.OpenMainFlow
+        }
+    }
+
+
 
     override fun obtainEvent(viewEvent: LoginEvent) {
         when(viewEvent){
@@ -40,17 +51,20 @@ class LoginViewModel: BaseSharedViewModel<LoginViewState, LoginAction, LoginEven
     private fun sendLogin() {
         viewState = viewState.copy(isSending = true)
         viewModelScope.launch {
-            viewState = try {
+            viewAction = LoginAction.OpenMainFlow
+             try {
                 val response = authRepository.login(
                     viewState.email, viewState.password
                 )
-                if (response.token.isNotEmpty()){
-                    viewState.copy(email = "", password = "", isSending = false)
+               if (response.token.isNotEmpty()){
+                   viewState = viewState.copy(email = "", password = "", isSending = false)
+                   //                viewAction = LoginAction.OpenMainFlow
                 } else {
-                    viewState.copy(isSending = false)
+                   viewState = viewState.copy(isSending = false)
                 }
+
             } catch (e: Exception) {
-                viewState.copy(isSending = false)
+                 viewState = viewState.copy(isSending = false)
             }
 
         }
