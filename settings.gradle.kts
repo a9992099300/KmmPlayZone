@@ -6,15 +6,9 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 rootProject.name = "KmmTest"
 include(":androidApp")
+include(":desktop")
 include(":common:auth:api")
 include(":common:auth:presentation")
 include(":common:auth:data")

@@ -83,7 +83,8 @@ object Dependencies {
         }
 
         object Navigation {
-            private const val version = "1.0.0-beta15"
+         //   private const val version = "1.0.0-beta15"
+         private const val version = "1.3.1"
             const val core = "io.github.alexgladkov:odyssey-core:$version"
             const val compose = "io.github.alexgladkov:odyssey-compose:$version"
         }

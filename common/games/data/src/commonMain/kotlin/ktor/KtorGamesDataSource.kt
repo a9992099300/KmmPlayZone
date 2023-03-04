@@ -7,6 +7,7 @@ import io.ktor.client.request.*
 import io.ktor.http.*
 import ktor.models.KtorSearchGame
 import ktor.models.KtorSearchRequest
+import models.CreateGameInfo
 import models.Game
 
 class KtorGamesDataSource(private val httpClient: HttpClient) {
@@ -32,6 +33,18 @@ class KtorGamesDataSource(private val httpClient: HttpClient) {
                 //   setBody(KtorSearchRequest(searchQuery = ""))
             }
         }.body()
+    }
+
+    suspend fun createGame(game: CreateGameInfo, token: String){
+        httpClient.get{
+            url {
+                header("X-RapidAPI-Key", "1c2d65f0bamshaca998eaf20e438p11154ajsnd28dd5bd0887")
+                header("X-RapidAPI-Host", "marvel-vs-capcom-2.p.rapidapi.com")
+//                parameters.append(API_KEY_HEADER, API_KEY)
+                path("characters")
+                //   setBody(KtorSearchRequest(searchQuery = ""))
+            }
+        }
     }
 }
 

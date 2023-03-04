@@ -11,7 +11,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import coil.compose.AsyncImage
+//import coil.compose.AsyncImage
 import home.models.HomeEvent
 import home.models.HomeViewState
 import theme.Theme
@@ -22,12 +22,12 @@ fun HomeView(viewState: HomeViewState, eventHandler: (HomeEvent) -> Unit) {
             eventHandler.invoke(HomeEvent.UserprofileClicked)
         }.padding(start = 24.dp, top = 26.dp,
             end = 24.dp, bottom = 0.dp)) {
-            AsyncImage(
-                modifier = Modifier.clip(RoundedCornerShape(28.dp)).size(56.dp),
-                model = viewState.avatarUrl,
-                contentDescription = "Avatar",
-                contentScale = ContentScale.FillBounds,
-            )
+//            AsyncImage(
+//                modifier = Modifier.clip(RoundedCornerShape(28.dp)).size(56.dp),
+//                model = viewState.avatarUrl,
+//                contentDescription = "Avatar",
+//                contentScale = ContentScale.FillBounds,
+//            )
             
             Column(modifier = Modifier.padding(start = 20.dp)) {
                 Text(viewState.status, color = Theme.colors.secondaryTextColor.copy(alpha = 0.5F),
