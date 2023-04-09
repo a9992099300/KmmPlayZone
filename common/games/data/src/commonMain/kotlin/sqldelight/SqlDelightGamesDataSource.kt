@@ -1,4 +1,6 @@
 package sqldelight
 
-class SqlDelightGamesDataSource() {
+class SqlDelightGamesDataSource(
+    private val database: Database
+) {
 }
